@@ -1,0 +1,134 @@
+.Firstcontainer {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.icon{
+  display: inline-block;
+  width: 22%;
+  height: 9%;
+  padding-top: 20px;
+  padding-left: 30px;
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #000000;
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.862);
+}
+.icon>img{
+width: 30px;
+margin-right: 8px;
+margin-bottom: 10px;
+}
+
+.div1 {
+  display: flex;
+  flex-direction: column;
+  background-image: url(/src/assets/notepage.png);
+  background-size: 200px 120%;
+  width: 60%;
+  background-color: #080808;
+  color: #f473f4;
+}
+
+.Typewriter{
+  margin-top: 232px;
+  margin-left: 50px;
+}
+
+.Typewriter__wrapper {
+  font-size: 30px;
+  line-height: 40px;
+  
+}
+
+.Typewriter__wrapper>strong{
+    font-size: 40px;
+}
+
+.Typewriter__cursor {
+  font-size: 25px;
+  display: inline-block;
+  color: transparent;
+  background-color: #f8d0f8;
+  border-radius: 50px;
+  width: 38px;
+}
+
+.div2 {
+  background-image: url(/src/assets/doodle.png);
+  background-size: 100%;
+  background-color: rgb(255, 255, 255);
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 15%;
+  padding-bottom: 70px;
+}
+
+.footer{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+  padding: 0px 20px;
+  border-radius: 900px;
+    box-shadow: 0 0 px rgba(255, 255, 255, 0.985);
+
+}
+
+.div2>div>img{
+  margin: auto;
+  width: 30px;
+}
+
+.div2>div>span{
+  display: flex;
+  justify-content: space-around;
+  font-size: 14px;
+    width:200px;
+    text-decoration: underline;
+}
+
+
+.div2 >div> h2 {
+  text-align: center;
+  font-weight: 600;
+}
+.div2 >div>a button {
+  color: white;
+  background-color: #b84db8;
+  width: 230px;
+  padding: 13px;
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+
+}
+
+.div2 >div>a button:hover {
+    background-color: #b84db8d6;
+    transition: 0.3s;
+
+}
+
+@media only screen and (max-width: 668px) {
+  .div1 {
+    display: none;
+  }
+
+  .div2 {
+    width: 100%;
+    background-size: 100%;
+    padding-top: 35%;
+  }
+
+  .div2 >div>a button {
+    width: 210px;
+    padding: 12px;
+  }
+}

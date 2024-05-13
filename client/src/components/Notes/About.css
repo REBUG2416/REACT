@@ -1,0 +1,35 @@
+.about-section{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+
+}
+
+.About-header>h3{
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.About-header-body{
+    text-align: center;
+    font-weight: 700;
+    color: #b34bb3;
+    margin: 50px 0px;
+    font-size: 18px;
+}
+
+.About-body>p{
+    text-align: justify;
+    margin: 20px 0px;
+}
+
+.About-body>h3{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 668px) {
+.about-section{
+    width: 75%;
+}
+}
