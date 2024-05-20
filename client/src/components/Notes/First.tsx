@@ -1,6 +1,6 @@
 import "./First.css"
 import Writer from "./Writer";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 const First = () => {
     const showNav = false;
     
