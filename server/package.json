@@ -5,12 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "rm -rf node_modules",
-  "install": "npm install --build-from-source",
-  "postinstall": "npm rebuild msnodesqlv8 || exit 0",
-  "start": "npm rebuild msnodesqlv8 && node server",
-    "dev": "nodemon server",
-    "build": "npm install"
+  "start": "node server",
+    "dev": "nodemon server"
   },
   "keywords": [],
   "author": "",
