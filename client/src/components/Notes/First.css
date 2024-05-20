@@ -125,7 +125,8 @@ margin-bottom: 10px;
     width: 100%;
     background-size: 100%;
     padding-top: 35%;
-    height: 100vh;
+      padding-bottom: 40%;
+
   }
 
   .div2 >div>a button {
