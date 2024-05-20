@@ -1,8 +1,6 @@
 import ListGroup from "./components/ListGroup";
 import Message from "./components/Message";
-import Button from "./components/Button/Button";
 import Student from "./components/Student";
-import List from "./components/Button/List2";
 
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Nav from "./components/Notes/navBar";
