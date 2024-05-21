@@ -10,7 +10,7 @@ interface Note {
 
 // Define the interface for the props passed to the NoteList component
 interface NoteProps {
-  notes: Note[]; // Array of notes
+  notes: Note[] | null; // Array of notes
   setNote: React.Dispatch<React.SetStateAction<Note[] | null>>; // Function to update notes
 }
 
@@ -35,7 +35,7 @@ const NoteList = (props: NoteProps) => {
 
       // Set the edited note to a new empty note
       setEditedNote({
-        id: notes.length,
+        id: notes!.length,
         title: "",
         body: "",
         created_at: new Date().toLocaleString(),
@@ -48,7 +48,7 @@ const NoteList = (props: NoteProps) => {
       }
 
       // Get the selected note based on id
-      const selectedNote = notes[id];
+      const selectedNote = notes![id];
 
       // Set the edited note to the selected note
       setEditedNote({
@@ -63,9 +63,9 @@ const NoteList = (props: NoteProps) => {
   // Function to save the edited note
   const saveNote = (id: number) => {
     // If id equals the length of notes array + 1, it means it's a new note being added
-    if (id === notes.length) {
+    if (id === notes!.length) {
       // Add the edited note to the notes array
-      setNote([...notes, editedNote]);
+      setNote([...notes!, editedNote]);
 
       fetch("http://localhost:5000/api/notes", {
         method: "POST",
@@ -89,7 +89,7 @@ const NoteList = (props: NoteProps) => {
         });
     } else {
       // If id is not notes.length + 1, it means an existing note is being edited
-      const selectedNote = notes[id];
+      const selectedNote = notes![id];
 
       // Update the selected note with the edited note
       selectedNote.title = editedNote.title;
@@ -116,7 +116,7 @@ const NoteList = (props: NoteProps) => {
   // Function to delete a note
   const deleteNote = (id: number) => {
     // Filter out the deleted note from the notes array
-    const updatedNotes = notes.filter((note, index) => index !== id);
+    const updatedNotes = notes!.filter((note, index) => index !== id);
 
     // Update the notes array
     setNote(updatedNotes);
@@ -157,7 +157,7 @@ const NoteList = (props: NoteProps) => {
         <div className="preview-section">
           <div className="previews">
             <div>
-              {notes.map((note, index) => (
+              {notes!.map((note, index) => (
                 <li
                   className="note-preview"
                   data-aos="fade-up"
@@ -267,7 +267,7 @@ const NoteList = (props: NoteProps) => {
       </div>
       {/* Mobile footer */}
       <div className="mobile-footer">
-        <span>{notes.length} notes</span>
+        <span>{notes!.length} notes</span>
         <button
           className="addButton"
           onClick={() => {
