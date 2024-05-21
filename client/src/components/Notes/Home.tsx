@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NoteList from "./NoteList";
 import useFetch from "./useFetch";
 
@@ -10,7 +10,7 @@ interface Note {
 }
 
 const Home = () => {
-  const {
+/*   const {
     data: notes,
     isPending,
     setData: setNotes,
@@ -20,11 +20,13 @@ const Home = () => {
     "Content-Type": "application/json",
   },
 });
+ */
+ const [notes, setNotes] = useState<Note[] | null>([{ title: "", body: "", created_at: "", id: 0 }]);
 
   return (
     <div className="home">
-      {isPending && <div className="loading-screen"><div className="loader"></div></div>}
-     {notes && <NoteList notes={notes} setNote={setNotes} />}
+{/*       {isPending && <div className="loading-screen"><div className="loader"></div></div>}
+ */}     <NoteList notes={notes} setNote={setNotes} />
    </div>
   );
 };
