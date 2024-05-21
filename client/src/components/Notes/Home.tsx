@@ -21,7 +21,7 @@ const Home = () => {
   },
 });
  */
- const [notes, setNotes] = useState<Note[] | null>([{ title: "", body: "", created_at: "", id: 0 }]);
+ const [notes, setNotes] = useState<Note[] | null>([{ title: "Greetings", body: "Welcome User, Enjoy the Notepad", created_at: "Before Time", id: 0 }]);
 
   return (
     <div className="home">
