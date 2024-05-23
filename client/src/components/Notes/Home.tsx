@@ -14,7 +14,7 @@ const Home = () => {
     data: notes,
     isPending,
     setData: setNotes,
-  } = useFetch<Note[]>("http://localhost:5000/api/notes", {
+  } = useFetch<Note[]>("https://notepad-1o3q.onrender.com/api/notes", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

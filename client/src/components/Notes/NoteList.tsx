@@ -67,7 +67,7 @@ const NoteList = (props: NoteProps) => {
       // Add the edited note to the notes array
       setNote([...notes!, editedNote]);
 
-      fetch("http://localhost:5000/api/notes", {
+      fetch("https://notepad-1o3q.onrender.com/api/notes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
