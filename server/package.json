@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "rebuild-msnodesqlv8": "cd node_modules/msnodesqlv8 && node-gyp rebuild",
-    "start": "npm run rebuild-msnodesqlv8 && node server",
+    "start": "npm install && startserver",
+    "startserver":"node server",
     "dev": "nodemon server"
   },
   "keywords": [],
