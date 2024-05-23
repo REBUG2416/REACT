@@ -59,7 +59,7 @@ const Note = sequelize.define(
 );
 
 
-app.get("/api/notes", async (req, res) => {
+app.get("/api/Notes", async (req, res) => {
   try {
     const notes = await Note.findAll();
     res.json(notes);
