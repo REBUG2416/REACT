@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors'); // Import the cors module
-const sql = require('msnodesqlv8'); // Import the mssql module
-const port = process.env.PORT;
-
+/* const sql = require('msnodesqlv8'); // Import the mssql module
+const port = process.env.PORT || 5000;
+ */
 const app = express();
 app.use(cors()); 
 app.use(express.json()); 
@@ -17,7 +17,7 @@ app.use(express.json());
   },
 };
 
- */const connectionString =
+ *//* const connectionString =
   "Driver={ODBC Driver 17 for SQL Server};Server=LAPTOP-P2QLB5J2;Database=NotePad;Trusted_Connection=yes;";
 
 
@@ -84,7 +84,7 @@ app.post("/api/notes", (req, res) => {
     });
   });
 });
-
+ */
 app.listen(port,() => {
   console.log("Server started on port 5000");
 });
