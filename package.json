@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "npm run dev:client && npm run dev:server",
-    "start": "npx concurrently \"npm run start:server\" \"npm run start:client\"",
+    "start": "npm run start:server",
     "build": "npm run build:client",
     "dev:client": "cd client && npm run dev",
     "dev:server": "cd server && npm run dev",
