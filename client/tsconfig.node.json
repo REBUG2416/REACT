@@ -6,6 +6,7 @@
     "strict": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
+    "composite": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["node"]
