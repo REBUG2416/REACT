@@ -59,21 +59,6 @@ const Note = sequelize.define(
 );
 
 
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
-app.post("/create-post", async (req, res) => {
-  const { title, content } = req.body;
-  try {
-    const newPost = await post.create({ title, content });
-    res.json(newPost);
-  } catch (err) {
-    console.log(err);
-  }
-});
-
 app.get("/api/notes", async (req, res) => {
   try {
     const notes = await Note.findAll();
