@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && npm install msnodesqlv8 && npm install mssql && node server.js",
+    "start": "npm install && npm install msnodesqlv8 && npm install mssql && node server",
     "dev": "nodemon server"
   },
   "keywords": [],
@@ -14,7 +14,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "msnodesqlv8": "^4.1.2",
+    "msnodesqlv8": "^4.2.1",
     "mssql": "^10.0.2"
   },
   "devDependencies": {
