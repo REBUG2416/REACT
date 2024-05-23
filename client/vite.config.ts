@@ -7,7 +7,7 @@ export default defineConfig({
     outDir: "dist",
   },
   server: {
-    port: parseInt(process.env.PORT) || 5000,
+    port: Number(process.env.PORT) || 5000,
   },
   optimizeDeps: {
     include: ["react", "react-dom"],
