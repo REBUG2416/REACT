@@ -95,6 +95,13 @@ const NoteList = (props: NoteProps) => {
       selectedNote.title = editedNote.title;
       selectedNote.body = editedNote.body;
 
+          fetch("https://notepad-1o3q.onrender.com/api/Notes", {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(editedNote),
+          });
       // Update the notes array
       setNote(notes);
     }
@@ -115,6 +122,12 @@ const NoteList = (props: NoteProps) => {
 
   // Function to delete a note
   const deleteNote = (id: number) => {
+    fetch(`https://notepad-1o3q.onrender.com/api/Notes/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
     // Filter out the deleted note from the notes array
     const updatedNotes = notes!.filter((note, index) => index !== id);
 
@@ -155,15 +168,10 @@ const NoteList = (props: NoteProps) => {
       <div className="notes-section">
         {/* Render the preview section */}
         <div className="preview-section">
-          <div className="previews">
+          <div className="previews" data-aos="fade-up" data-aos-duration="1000">
             <div>
               {notes!.map((note, index) => (
-                <li
-                  className="note-preview"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  key={index}
-                >
+                <li className="note-preview" key={index}>
                   <h3>{note.title}</h3>
                   <p>{note.body}</p>
                   <div>

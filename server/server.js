@@ -93,6 +93,54 @@ app.post("/api/notes", async (req, res) => {
   }
 });
 
+app.delete("/api/notes/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const note = await Note.findByPk(id);
+    if (!note) {
+      res.status(404).send("Note not found.");
+      return;
+    }
+
+    await note.destroy();
+    res.status(204).send();
+  } catch (err) {
+    console.error("Error deleting note:", err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// PUT endpoint to edit a note by ID
+app.put("/api/notes/:id", async (req, res) => {
+  const { id } = req.params;
+  const { title, body, created_at } = req.body;
+
+  // Validate request body
+  if (!title || !body || !created_at) {
+    res.status(400).send("Title, body, and created_at are required.");
+    return;
+  }
+
+  try {
+    const note = await Note.findByPk(id);
+    if (!note) {
+      res.status(404).send("Note not found.");
+      return;
+    }
+
+    note.title = title;
+    note.body = body;
+    note.created_at = new Date(created_at);
+
+    await note.save();
+    res.json(note);
+  } catch (err) {
+    console.error("Error updating note:", err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
 });
