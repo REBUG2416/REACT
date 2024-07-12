@@ -68,11 +68,12 @@ const Login = sequelize.define(
       allowNull: false,
     },
     code: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
   },
   {
+    timestamps: false,
     tableName: "Logins",
   }
 );
@@ -80,11 +81,8 @@ const Login = sequelize.define(
 // GET /api/Logins endpoint
 app.get("/api/Logins", async (req, res) => {
   try {
-    const [logins,metadata] = await sequelize.query(`
-   SELECT username,password,code FROM public."Logins";
-  `);
+    const logins = await Login.findAll();
     res.json(logins);
-    console.log(logins);
   } catch (err) {
     console.error("Error fetching notes:", err);
     res.status(500).send("Internal Server Error");
@@ -96,9 +94,7 @@ app.post("/api/Logins", async (req, res) => {
   const { username, password, code } = req.body;
 
   try {
-    await sequelize.query(`
-      INSERT INTO public."Logins" (username, password, code)
-      VALUES (${username}, ${password}, ${code});`);
+    await Login.create({ username, password, code });
     res.status(201).send("Login added successfully.");
   } catch (err) {
     console.error("Error adding Login:", err);
