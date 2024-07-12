@@ -79,12 +79,11 @@ const Login = sequelize.define(
 
 // GET /api/Logins endpoint
 app.get("/api/Logins", async (req, res) => {
-  console.log("Fetching Logins...");
   try {
-    const logins = await Login.findAll();
+    const logins = await Note.findAll();
     res.json(logins);
   } catch (err) {
-    console.error("Error fetching Logins:", err);
+    console.error("Error fetching notes:", err);
     res.status(500).send("Internal Server Error");
   }
 });
@@ -105,7 +104,7 @@ app.post("/api/Logins", async (req, res) => {
 // GET /api/Notes endpoint
 app.get("/api/Notes", async (req, res) => {
   try {
-    const notes = await Login.findAll();
+    const notes = await Note.findAll();
     res.json(notes);
   } catch (err) {
     console.error("Error fetching notes:", err);
