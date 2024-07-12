@@ -87,7 +87,7 @@ app.get("/api/Logins", async (req, res) => {
     console.log(Logins);
   } catch (err) {
     console.error("Error fetching Logins:", err);
-=  }
+  }
 });
 
 app.post("/api/Logins", async(req, res) => {
