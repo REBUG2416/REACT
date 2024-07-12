@@ -96,7 +96,10 @@ app.post("/api/Logins", async (req, res) => {
   const { username, password, code } = req.body;
 
   try {
-    const newLogin = await Login.create({ username, password, code });
+    const newLogin = await sequelize.query(`
+      INSERT INTO public."Logins" (username, password, code)
+      VALUES (${username}, ${password}, ${code})
+    `);
     res.status(201).send("Login added successfully.");
   } catch (err) {
     console.error("Error adding Login:", err);
