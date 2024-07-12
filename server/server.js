@@ -96,7 +96,7 @@ app.post("/api/Logins", async (req, res) => {
   const { username, password, code } = req.body;
 
   try {
-    const newLogin = await sequelize.query(`
+    await sequelize.query(`
       INSERT INTO public."Logins" (username, password, code)
       VALUES (${username}, ${password}, ${code})
     `);
