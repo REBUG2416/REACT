@@ -63,15 +63,15 @@ const Login = sequelize.define(
   {
     username: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     password: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     code: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {
