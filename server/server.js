@@ -61,17 +61,20 @@ const Note = sequelize.define(
 const Login = sequelize.define(
   "Login",
   {
-    Username: {
-      type: DataTypes.STRING,
+    username: {
+      type: DataTypes.TEXT,
       allowNull: false,
     },
-    Password: {
+    password: {
       type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    code: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   },
   {
-    timestamps: false,
     tableName: "Logins",
   }
 );
