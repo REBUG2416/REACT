@@ -80,7 +80,7 @@ const Login = sequelize.define(
 // GET /api/Logins endpoint
 app.get("/api/Logins", async (req, res) => {
   try {
-    const logins = await sequelize.query(`
+    const [logins,metadata] = await sequelize.query(`
    SELECT username,password,code FROM public."Logins";
   `);
     res.json(logins);
