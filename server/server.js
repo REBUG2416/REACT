@@ -80,8 +80,11 @@ const Login = sequelize.define(
 // GET /api/Logins endpoint
 app.get("/api/Logins", async (req, res) => {
   try {
-    const logins = await Note.findAll();
+    const logins = await sequelize.query(`
+   SELECT * FROM public."Logins";
+  `);
     res.json(logins);
+    console.log(logins);
   } catch (err) {
     console.error("Error fetching notes:", err);
     res.status(500).send("Internal Server Error");
