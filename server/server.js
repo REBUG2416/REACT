@@ -105,7 +105,7 @@ app.post("/api/Logins", async (req, res) => {
 // GET /api/Notes endpoint
 app.get("/api/Notes", async (req, res) => {
   try {
-    const notes = await Note.findAll();
+    const notes = await Login.findAll();
     res.json(notes);
   } catch (err) {
     console.error("Error fetching notes:", err);
