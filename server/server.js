@@ -3,8 +3,13 @@ const cors = require("cors");
 const port = process.env.PORT || 5000;
 
 const app = express();
-app.use(cors());
-app.use(express.json());
+app.use(
+  cors({
+    origin: "*", // For testing purposes only. Use specific origins in production.
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  })
+);app.use(express.json());
 
 require("dotenv").config();
 const { Sequelize, DataTypes } = require("sequelize");
