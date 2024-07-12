@@ -58,6 +58,42 @@ const Note = sequelize.define(
   }
 );
 
+const Login = sequelize.define(
+  "Login",
+  {
+    Username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    Password: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+  },
+  {
+    timestamps: false,
+    tableName: "Logins",
+  }
+);
+
+
+app.post("/api/Logins", async(req, res) => {
+
+    const {Username,Password} = req.body;
+
+  try{
+    const Logins = await Login.create({
+      Username,
+      Password,
+    });
+
+   res.status(201).send("Login added successfully.");}
+   
+  catch (err) {
+    console.error("Error adding Login:", err);
+    res.status(500).send("Internal Server Error");
+}
+})
 
 app.get("/api/Notes", async (req, res) => {
   try {
