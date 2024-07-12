@@ -38,6 +38,10 @@ sequelize
 const Note = sequelize.define(
   "Note",
   {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     body: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -80,10 +84,10 @@ app.get("/api/Logins", async (req, res) => {
   try {
     const Logins = await Login.findAll();
     res.json(Logins);
+    console.log(Logins);
   } catch (err) {
     console.error("Error fetching Logins:", err);
-    res.status(500).send("Internal Server Error");
-  }
+=  }
 });
 
 app.post("/api/Logins", async(req, res) => {
