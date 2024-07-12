@@ -63,11 +63,11 @@ const Login = sequelize.define(
   {
     username: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
     },
     password: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
     },
     code: {
       type: DataTypes.INTEGER,
@@ -80,6 +80,7 @@ const Login = sequelize.define(
 );
 
 app.get("/api/Logins", async (req, res) => {
+  console.log("in");
   try {
     const Logins = await Login.findAll();
     res.json(Logins);
