@@ -1,12 +1,10 @@
-const express = require('express');
-const cors = require('cors'); // Import the cors module
-/* const sql = require('msnodesqlv8'); // Import the mssql module*/
+const express = require("express");
+const cors = require("cors");
 const port = process.env.PORT || 5000;
 
 const app = express();
-app.use(cors()); 
-app.use(express.json()); 
-
+app.use(cors());
+app.use(express.json());
 
 require("dotenv").config();
 const { Sequelize, DataTypes } = require("sequelize");
@@ -34,7 +32,7 @@ sequelize
     console.log(err);
   });
 
- //   model schema
+// Model schema
 const Note = sequelize.define(
   "Note",
   {
@@ -79,35 +77,32 @@ const Login = sequelize.define(
   }
 );
 
+// GET /api/Logins endpoint
 app.get("/api/Logins", async (req, res) => {
-  console.log("in");
+  console.log("Fetching Logins...");
   try {
-    const Logins = await Login.findAll();
-    res.json(Logins);
-    console.log(Logins);
+    const logins = await Login.findAll();
+    res.json(logins);
   } catch (err) {
     console.error("Error fetching Logins:", err);
+    res.status(500).send("Internal Server Error");
   }
 });
 
-app.post("/api/Logins", async(req, res) => {
+// POST /api/Logins endpoint
+app.post("/api/Logins", async (req, res) => {
+  const { username, password, code } = req.body;
 
-    const {Username,Password} = req.body;
-
-  try{
-    const Logins = await Login.create({
-      Username,
-      Password,
-    });
-
-   res.status(201).send("Login added successfully.");}
-   
-  catch (err) {
+  try {
+    const newLogin = await Login.create({ username, password, code });
+    res.status(201).send("Login added successfully.");
+  } catch (err) {
     console.error("Error adding Login:", err);
     res.status(500).send("Internal Server Error");
-}
-})
+  }
+});
 
+// GET /api/Notes endpoint
 app.get("/api/Notes", async (req, res) => {
   try {
     const notes = await Note.findAll();
@@ -118,22 +113,22 @@ app.get("/api/Notes", async (req, res) => {
   }
 });
 
-
+// POST /api/notes endpoint
 app.post("/api/notes", async (req, res) => {
   console.log("Received request body:", req.body);
-  const { id, title, body, created_at } = req.body;
+  const { title, body, created_at } = req.body;
 
   // Validate request body
-  if (!id || !created_at) {
+  if (!title || !body || !created_at) {
     res.status(400).send("Title, body, and created_at are required.");
     return;
   }
 
   try {
-    const notes = await Note.create({
+    const newNote = await Note.create({
       title,
       body,
-      created_at: new Date(created_at)
+      created_at: new Date(created_at),
     });
     res.status(201).send("Note added successfully.");
   } catch (err) {
@@ -142,6 +137,7 @@ app.post("/api/notes", async (req, res) => {
   }
 });
 
+// DELETE /api/notes/:id endpoint
 app.delete("/api/notes/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -160,7 +156,7 @@ app.delete("/api/notes/:id", async (req, res) => {
   }
 });
 
-// PUT endpoint to edit a note by ID
+// PUT /api/notes/:id endpoint
 app.put("/api/notes/:id", async (req, res) => {
   const { id } = req.params;
   const { title, body, created_at } = req.body;
@@ -191,7 +187,5 @@ app.put("/api/notes/:id", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`app listening at http://localhost:${port}`);
+  console.log(`App listening at http://localhost:${port}`);
 });
-
-
