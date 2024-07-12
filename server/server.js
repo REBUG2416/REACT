@@ -81,7 +81,7 @@ const Login = sequelize.define(
 app.get("/api/Logins", async (req, res) => {
   try {
     const logins = await sequelize.query(`
-   SELECT * FROM public."Logins";
+   SELECT username,password,code FROM public."Logins";
   `);
     res.json(logins);
     console.log(logins);
