@@ -363,6 +363,10 @@ setOutStock(true)
   let filterDaily;
   let filterSales;
   let filterFeedback;
+  let filterLowData;
+  
+  console.log(lowStockItems);
+  
   if(currentBusinessUnit.businessunitid !== 1){
     filterProduct = products.filter((p) => {
                   return (
