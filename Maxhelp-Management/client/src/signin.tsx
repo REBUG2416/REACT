@@ -16,11 +16,14 @@ export default function SignIn() {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/signin", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        "https://notepad-1o3q.onrender.com/api/signin",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();

@@ -101,25 +101,25 @@ export default function Dashboard() {
         dailySalesData,
         salesTrendsData,
       ] = await Promise.all([
-        fetch("http://localhost:5000/api/products", { headers }).then((res) =>
+        fetch("https://notepad-1o3q.onrender.com/api/products", { headers }).then((res) =>
           res.json()
         ),
-        fetch("http://localhost:5000/api/business-units", { headers }).then(
+        fetch("https://notepad-1o3q.onrender.com/api/business-units", { headers }).then(
           (res) => res.json()
         ),
-        fetch("http://localhost:5000/api/sales", { headers }).then((res) =>
+        fetch("https://notepad-1o3q.onrender.com/api/sales", { headers }).then((res) =>
           res.json()
         ),
-        fetch("http://localhost:5000/api/feedback", { headers }).then((res) =>
+        fetch("https://notepad-1o3q.onrender.com/api/feedback", { headers }).then((res) =>
           res.json()
         ),
-        fetch("http://localhost:5000/api/low-stock", { headers }).then((res) =>
+        fetch("https://notepad-1o3q.onrender.com/api/low-stock", { headers }).then((res) =>
           res.json()
         ),
-        fetch("http://localhost:5000/api/daily-sales", { headers }).then(
+        fetch("https://notepad-1o3q.onrender.com/api/daily-sales", { headers }).then(
           (res) => res.json()
         ),
-        fetch("http://localhost:5000/api/sales-trends", { headers }).then(
+        fetch("https://notepad-1o3q.onrender.com/api/sales-trends", { headers }).then(
           (res) => res.json()
         ),
       ]);
@@ -176,7 +176,7 @@ console.log(dailySales);
   ) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/product", {
+      const response = await fetch("https://notepad-1o3q.onrender.com/api/product", {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -201,7 +201,7 @@ console.log(dailySales);
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/products", {
+      const response = await fetch("https://notepad-1o3q.onrender.com/api/products", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -232,7 +232,7 @@ console.log(dailySales);
 setOutStock(true)
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:5000/api/sales", {
+        const response = await fetch("https://notepad-1o3q.onrender.com/api/sales", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -260,7 +260,7 @@ setOutStock(true)
   const handleAddFeedback = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/feedback", {
+      const response = await fetch("https://notepad-1o3q.onrender.com/api/feedback", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -289,7 +289,7 @@ setOutStock(true)
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:5000/api/products/${productId}`,
+        `https://notepad-1o3q.onrender.com/api/products/${productId}`,
         {
           method: "DELETE",
           headers: {
@@ -315,7 +315,7 @@ setOutStock(true)
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:5000/api/sales/${saleId}`,
+        `https://notepad-1o3q.onrender.com/api/sales/${saleId}`,
         {
           method: "DELETE",
           headers: {
@@ -339,7 +339,7 @@ setOutStock(true)
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:5000/api/feedback/${feedbackId}`,
+        `https://notepad-1o3q.onrender.com/api/feedback/${feedbackId}`,
         {
           method: "DELETE",
           headers: {
