@@ -1,0 +1,25 @@
+{
+  "scripts": {
+    "dev": "npm run dev:client && npm run dev:server",
+    "start": "npm run start:server",
+    "build": "npm run build:client",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "start:client": "cd client && npm start",
+    "start:server": "cd server && npm start",
+    "build:client": "cd client && npm run build"
+  },
+  "dependencies": {
+    "next-themes": "^0.4.3",
+    "react-router-dom": "^6.23.0",
+    "typewriter-effect": "^2.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.0",
+    "concurrently": "^8.2.2",
+    "typescript": "^5.6.3",
+    "vite": "^5.2.11"
+  }
+}
