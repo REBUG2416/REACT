@@ -13,7 +13,7 @@
   // Middleware
   app.use(
     cors({
-      origin: "https://react-2znx.onrender.com",
+      origin: "*",
       credentials: true,
       allowedHeaders: ["Content-Type"],
     })
