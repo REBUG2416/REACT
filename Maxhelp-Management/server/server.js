@@ -13,9 +13,8 @@
   // Middleware
   app.use(
     cors({
-      origin: "*",
+      origin: "https://react-2znx.onrender.com",
       credentials: true,
-      allowedHeaders: ["Content-Type"],
     })
   );
   app.use(express.json());
