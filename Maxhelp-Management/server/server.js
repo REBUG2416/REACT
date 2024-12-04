@@ -2,7 +2,7 @@
   const axios = require("axios");
   const cors = require("cors");
   const { Sequelize, DataTypes, Op } = require("sequelize");
-  const bcrypt = require("bcrypt");
+  const bcrypt = require("bcryptjs");
   const jwt = require("jsonwebtoken");
   const nodemailer = require("nodemailer");
   require("dotenv").config();
