@@ -365,7 +365,6 @@ setOutStock(true)
   let filterFeedback;
   let filterLowData;
   
-  console.log(lowStockItems);
   
   if(currentBusinessUnit.businessunitid !== 1){
     filterProduct = products.filter((p) => {
@@ -390,8 +389,9 @@ filterDaily = {
                     f.BusinessUnit.Name === currentBusinessUnit.name
                   );
                 })
-              console.log(filterDaily);
-              
+filterLowData = lowStockItems.filter((l) => {
+  return l.businessunitid === currentBusinessUnit.businessunitid;
+});             
   }
 
   else{
@@ -399,6 +399,7 @@ filterDaily = {
   filterDaily =  dailySales;
   filterSales = sales;
   filterFeedback = feedback;
+  filterLowData = lowStockItems;
   }
   return (
     <div className="container">
@@ -533,7 +534,7 @@ filterDaily = {
               <p>{filterFeedback.length}</p>
             </div>
           </div>
-          {lowStockItems.length > 0 && (
+          {filterLowData.length > 0 && (
             <div
               className="alert"
               data-aos="fade-down"
@@ -541,7 +542,7 @@ filterDaily = {
             >
               <h3>Low Stock Alert</h3>
               <p>
-                {lowStockItems.length} items are running low on stock. Please
+                {filterLowData.length} items are running low on stock. Please
                 check the Products tab for details.
               </p>
             </div>
