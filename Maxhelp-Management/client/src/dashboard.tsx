@@ -845,7 +845,7 @@ filterDaily = {
       )}
       {activeTab === "feedback" && (
         <div className="feedback" data-aos="fade-up" data-aos-duration="1000">
-          <h2>Customer Feedback</h2>
+          <h2>User Feedback</h2>
           {currentBusinessUnit.businessunitid !== 1 && (
             <>
               <form onSubmit={handleAddFeedback}>
@@ -920,7 +920,7 @@ filterDaily = {
             <table className="tables">
               <thead>
                 <tr>
-                  <th>Customer</th>
+                  <th>User</th>
                   <th>Email</th>
                   <th>Message</th>
                   <th>Date</th>

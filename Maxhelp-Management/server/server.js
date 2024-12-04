@@ -21,7 +21,7 @@
 
   // Database connection
   const sequelize = new Sequelize(
-    "postgresql://dbmaxhelp:aw8wOHDjJ0TrdmE5mnJ8fjsTkcXWWKut@dpg-csv046l2ng1s73dqfct0-a.oregon-postgres.render.com/dbmaxhelp",
+    "postgresql://dbmaxhelp:aw8wOHDjJ0TrdmE5mnJ8fjsTkcXWWKut@dpg-csv046l2ng1s73dqfct0-a/dbmaxhelp",
     {
       dialect: "postgres",
       logging: false,
